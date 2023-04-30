@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.School;
-import com.example.demo.service.SchoolService;
+import com.example.demo.domain.Student;
+import com.example.demo.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +11,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/school")
-public class SchoolController {
-    private final SchoolService schoolService;
+@RequestMapping("/student")
+public class StudentController {
+    private final StudentService studentService;
 
     @GetMapping("")
-    public List<School> findAll() {
-        return schoolService.findAll();
+    public List<Student> findAll() {
+        return studentService.findAll();
     }
 }

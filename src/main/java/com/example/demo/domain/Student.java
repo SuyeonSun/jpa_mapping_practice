@@ -1,13 +1,8 @@
 package com.example.demo.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -17,7 +12,11 @@ public class Student {
     @Column(name = "student_id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "school_id", insertable=false, updatable=false)
+    private Long schoolId;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
