@@ -1,9 +1,11 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,7 @@ public class School {
 
     private String name;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "school")
+    @OneToMany(mappedBy = "school", orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("school")
     private List<Student> students = new ArrayList<>();
 }

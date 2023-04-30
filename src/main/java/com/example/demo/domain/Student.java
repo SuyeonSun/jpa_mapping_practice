@@ -1,8 +1,10 @@
 package com.example.demo.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -15,11 +17,11 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "school_id", insertable=false, updatable=false)
-    private Long schoolId;
+//    @Column(name = "school_id", insertable=false, updatable=false)
+//    private Long schoolId;
 
-    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "school_id")
+    @JsonIgnoreProperties("students")
     private School school;
 }
