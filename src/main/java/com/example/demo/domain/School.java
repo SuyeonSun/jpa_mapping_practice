@@ -20,7 +20,7 @@ public class School {
 
     private String name;
 
-    @OneToMany(mappedBy = "school", orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "school", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("school")
     private List<Student> students = new ArrayList<>();
 }

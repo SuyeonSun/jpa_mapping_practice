@@ -17,8 +17,6 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-//    @Column(name = "school_id", insertable=false, updatable=false)
-//    private Long schoolId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "school_id")
