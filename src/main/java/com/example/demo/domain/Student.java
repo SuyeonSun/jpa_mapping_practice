@@ -1,10 +1,9 @@
 package com.example.demo.domain;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -18,6 +17,7 @@ public class Student {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "school_id")
     @JsonIgnoreProperties("students")
     private School school;

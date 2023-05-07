@@ -17,9 +17,4 @@ public class StudentController {
     public List<Student> findAll() {
         return studentService.findAll();
     }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        studentService.delete(id);
-    }
 }
