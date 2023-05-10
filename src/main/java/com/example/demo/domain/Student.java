@@ -9,15 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class Student {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "student_id")
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    //@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    // student 전체 조회
+    // school_id 1 조회
+    // school_id 2 조회
+    // school_id 3 조회
     @JoinColumn(name = "school_id")
     @JsonIgnoreProperties("students")
     private School school;
