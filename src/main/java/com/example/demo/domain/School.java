@@ -19,11 +19,6 @@ public class School {
     private String name;
 
      @OneToMany(mappedBy = "school", fetch = FetchType.LAZY)
-    // school 전체 조회
-    // school_id 1 조회
-    // school_id 2 조회
-    // school_id 3 조회
-    // school_id 4 조회
      @JsonIgnoreProperties("school")
      private List<Student> students = new ArrayList<>();
 }

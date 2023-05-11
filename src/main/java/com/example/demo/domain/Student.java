@@ -17,11 +17,7 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    // student 전체 조회
-    // school_id 1 조회
-    // school_id 2 조회
-    // school_id 3 조회
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "school_id")
     @JsonIgnoreProperties("students")
     private School school;

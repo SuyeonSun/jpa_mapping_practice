@@ -14,11 +14,8 @@ public class ResponseDto {
 
     private String name;
 
-    private List<Student> students;
-
-    public ResponseDto(School school) {
-        this.id = school.getId();
-        this.name = school.getName();
-        this.students = school.getStudents();
+    public ResponseDto(Student student) {
+        this.id = student.getId();
+        this.name = student.getName();
     }
 }
