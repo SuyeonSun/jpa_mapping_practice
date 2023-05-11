@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Student;
-import com.example.demo.dto.ResponseDto;
+import com.example.demo.dto.StudentResponseDto;
 import com.example.demo.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     @Transactional(readOnly = true)
-    // public List<Student> findAll() {
-    //    return studentRepository.findAll();
-    // }
-    public List<ResponseDto> findAll() {
-        return studentRepository.findAll().stream().map(entity -> new ResponseDto(entity)).collect(Collectors.toList());
-
+    public List<Student> findAll() {
+        return studentRepository.findAll();
     }
+//    public List<StudentResponseDto> findAll() {
+//        return studentRepository.findAll().stream().map(entity -> new StudentResponseDto(entity)).collect(Collectors.toList());
+//
+//    }
 }

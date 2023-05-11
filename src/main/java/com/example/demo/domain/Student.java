@@ -21,4 +21,5 @@ public class Student {
     @JoinColumn(name = "school_id")
     @JsonIgnoreProperties("students")
     private School school;
+
 }
